@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_DEFAULT_PASSWORD}
       PGDATA: "/data/postgres"
     volumes:
-      - "./postgres-data:/data/postgres"
+      - postgres_data:/data/postgres
     ports:
       - "${POSTGRES_PORT}:5432"
     networks:
@@ -30,7 +30,7 @@ services:
     ports:
       - "${PGADMIN_PORT}:${PGADMIN_PORT}"
     volumes:
-      - "./pgadmin-data:/root/.pgadmin"
+      - pgadmin_data:/var/lib/pgadmin
     networks:
       - proxy
 
@@ -38,3 +38,7 @@ networks:
   proxy:
     external:
       name: ${NGINX_PROXY_NETWORK}
+
+volumes:
+  pgadmin_data:
+  postgres_data:
