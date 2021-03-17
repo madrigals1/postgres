@@ -3,6 +3,7 @@ version: "3"
 services:
   postgres:
     image: postgres:13-alpine
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_DB: ${POSTGRES_DEFAULT_DB}
@@ -14,10 +15,11 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     networks:
-      - proxy
+      - default
  
   pgadmin:
     image: "dpage/pgadmin4"
+    container_name: pgadmin4
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: ${DEFAULT_EMAIL}
@@ -26,12 +28,12 @@ services:
       VIRTUAL_HOST: ${PGADMIN_SSL_DOMAIN}
       VIRTUAL_PORT: ${PGADMIN_PORT}
       LETSENCRYPT_HOST: ${PGADMIN_SSL_DOMAIN}
-      LETSENCRYPT_EMAIL: ${DEFAULT_EMAIL}
     ports:
-      - "${PGADMIN_PORT}:${PGADMIN_PORT}"
+      - "${PGADMIN_PORT}:8765"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     networks:
+      - default
       - proxy
 
 networks:
