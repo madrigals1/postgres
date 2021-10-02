@@ -26,8 +26,9 @@ Environment variables:
     - `POSTGRES_PORT` - port on which **Postgres** instance will be running.
 - **PgAdmin4** settings:
     - `PGADMIN_PORT` - port, on which **pgAdmin4** instance will be running.
-    - `PGADMIN_SSL_DOMAIN` - domain, on which our **pgAdmin4** instance will be available through internet.
+    - `PGADMIN_SSL_DOMAIN` - domain, on which our **pgAdmin4** instance will be available through the internet.
 - `HTTPS_NETWORK` - network, in which our HTTPS server (Dockerized Nginx) will be running. 
+- `DATABASE_NETWORK` - network, on which our database will be accessible.
 
 ```dotenv
 # Postgres settings
@@ -41,6 +42,7 @@ PGADMIN_PORT=8765
 
 # Nginx proxy settings
 HTTPS_NETWORK=https_network
+DATABASE_NETWORK=database_network
 PGADMIN_SSL_DOMAIN=pgadmin.example.com
 DEFAULT_EMAIL=user@example.com
 ```
@@ -51,6 +53,12 @@ Create network with the name, that we have in `HTTPS_NETWORK` environment variab
 
 ```shell script
 docker network create https_network
+```
+
+Create network with the name, that we have in `DATABASE_NETWORK` environment variable.
+
+```shell script
+docker network create database_network
 ```
 
 ---
@@ -75,7 +83,7 @@ docker-compose down
 
 ## Usage
 
-- Access **pgAdmin4** instance through `SSL_DOMAIN` or `localhost:PGADMIN_PORT` from browser.
+- Access **pgAdmin4** instance through `PGADMIN_SSL_DOMAIN` or `localhost:PGADMIN_PORT` from browser.
 
 ## Authors
 - Adi Sabyrbayev [Github](https://github.com/madrigals1), [LinkedIn](https://www.linkedin.com/in/madrigals1/)
