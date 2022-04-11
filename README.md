@@ -26,7 +26,7 @@ Environment variables:
     - `POSTGRES_PORT` - port on which **Postgres** instance will be running.
 - **PgAdmin4** settings:
     - `PGADMIN_PORT` - port, on which **pgAdmin4** instance will be running.
-- `HTTPS_NETWORK` - network, in which our HTTPS server (Dockerized Nginx) will be running. 
+- `HTTPS_NETWORK` - network, in which our **Dockerized Nginx** is running. 
 - `DATABASE_NETWORK` - network, on which our database will be accessible.
 
 ```dotenv
