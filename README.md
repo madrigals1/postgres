@@ -1,12 +1,12 @@
 # Postgres + PgAdmin4
 
-Postgres + PgAdmin 4 with my settings. This project lets you manage your **postgres** instance through **pgAdmin4** instance, optionally available through internet.
+Postgres + PgAdmin 4 with my settings. This project lets you manage your **postgres** instance through **pgAdmin4** instance, optionally available through HTTPS over the internet.
 
 ## Prerequisites
 
 Make sure you have installed these:
 - [Docker and Docker Compose](https://phoenixnap.com/kb/install-docker-compose-on-ubuntu-20-04) - Will install all the required packages and software.
-- (Optional) [Dockerized Nginx with SSL](https://github.com/madrigals1/nginx) - Will generate SSL certificates and make the app accessible through `SSL_DOMAIN`, that is set inside `.env`.
+- (Optional) [Dockerized Nginx](https://github.com/madrigals1/nginx_proxy_manager) - Will generate SSL certificates and make the app accessible through `HTTPS_NETWORK`, that is set inside `.env`.
 
 ## Installation
 
@@ -26,7 +26,6 @@ Environment variables:
     - `POSTGRES_PORT` - port on which **Postgres** instance will be running.
 - **PgAdmin4** settings:
     - `PGADMIN_PORT` - port, on which **pgAdmin4** instance will be running.
-    - `PGADMIN_SSL_DOMAIN` - domain, on which our **pgAdmin4** instance will be available through the internet.
 - `HTTPS_NETWORK` - network, in which our HTTPS server (Dockerized Nginx) will be running. 
 - `DATABASE_NETWORK` - network, on which our database will be accessible.
 
@@ -43,7 +42,6 @@ PGADMIN_PORT=8765
 # Nginx proxy settings
 HTTPS_NETWORK=https_network
 DATABASE_NETWORK=database_network
-PGADMIN_SSL_DOMAIN=pgadmin.example.com
 DEFAULT_EMAIL=user@example.com
 ```
 
@@ -83,7 +81,7 @@ docker-compose down
 
 ## Usage
 
-- Access **pgAdmin4** instance through `PGADMIN_SSL_DOMAIN` or `localhost:PGADMIN_PORT` from browser.
+- Access **pgAdmin4** instance through      `localhost:PGADMIN_PORT` from browser or create **SSL Certificate** and **Proxy Host** using [Dockerized Nginx](https://github.com/madrigals1/nginx_proxy_manager)
 
 ## Authors
 - Adi Sabyrbayev [Github](https://github.com/madrigals1), [LinkedIn](https://www.linkedin.com/in/madrigals1/)

@@ -16,7 +16,7 @@ services:
       - "${POSTGRES_PORT}:5432"
     networks:
       - database_network
- 
+
   pgadmin:
     image: "dpage/pgadmin4:5.7"
     container_name: pgadmin4
@@ -25,9 +25,6 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_DEFAULT_PASSWORD}
       PGADMIN_LISTEN_PORT: ${PGADMIN_PORT}
-      VIRTUAL_HOST: ${PGADMIN_SSL_DOMAIN}
-      VIRTUAL_PORT: ${PGADMIN_PORT}
-      LETSENCRYPT_HOST: ${PGADMIN_SSL_DOMAIN}
     ports:
       - "${PGADMIN_PORT}:8765"
     volumes:
