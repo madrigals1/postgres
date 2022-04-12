@@ -18,7 +18,7 @@ services:
       - database_network
 
   pgadmin:
-    image: "dpage/pgadmin4:5.7"
+    image: "dpage/pgadmin4:6.8"
     container_name: pgadmin4
     restart: always
     environment:
