@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   postgres:
@@ -36,11 +36,11 @@ services:
 
 networks:
   database_network:
-    external:
-      name: ${DATABASE_NETWORK}
+    name: ${DATABASE_NETWORK}
+    external: true
   https:
-    external:
-      name: ${HTTPS_NETWORK}
+    name: ${HTTPS_NETWORK}
+    external: true      
 
 volumes:
   pgadmin_data:
