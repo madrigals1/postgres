@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   postgres:
-    image: postgres:13-alpine
+    image: postgres:17.2
     container_name: postgres
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
       - database_network
 
   pgadmin:
-    image: dpage/pgadmin4:6.12
+    image: dpage/pgadmin4:8.13.0
     container_name: pgadmin4
     restart: always
     environment:
