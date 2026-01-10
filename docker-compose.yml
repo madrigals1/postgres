@@ -38,7 +38,7 @@ networks:
     external: true
   https:
     name: ${HTTPS_NETWORK}
-    external: true      
+    external: true
 
 volumes:
   pgadmin_data:
