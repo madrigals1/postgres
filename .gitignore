@@ -1,4 +1,5 @@
 .env
 .vscode
 .idea
-data
+data/**
+!data/pg_hba.conf
