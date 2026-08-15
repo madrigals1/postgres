@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:17.2
+    image: postgres:18.4
     container_name: postgres
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
       - database_network
 
   pgadmin:
-    image: dpage/pgadmin4:9.11
+    image: dpage/pgadmin4:9.17
     container_name: pgadmin4
     restart: always
     environment:
