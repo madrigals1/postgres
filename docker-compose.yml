@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:18.4
     container_name: postgres
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DEFAULT_DB}
       POSTGRES_USER: ${POSTGRES_DEFAULT_USER}
@@ -20,7 +20,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4:9.17
     container_name: pgadmin4
-    restart: always
+    restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: ${DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_DEFAULT_PASSWORD}
